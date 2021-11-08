@@ -14,7 +14,7 @@ export const PostFrames: React.VFC<{ posts: PostProps[] }> = ({ posts }) => {
 					<article key={post.postId} aria-label={post?.title}
 						className={classNames('group flex bg-white rounded shadow-lg overflow-hidden ring-1 ring-gray-100 lg:ring-0 lg:shadow-none sm:last:hidden lg:last:block', i === 0 ? 'lg:row-start-1 lg:row-end-5' : 'lg:col-start-2')}
 					>
-						<Link href={post.categories.nodes[0].uri + post.slug}>
+						<Link href={post.categories.nodes[0].uri + post.slug} prefetch={false}>
 							<a className={i === 0 ? "" : "lg:flex lg:gap-x-2"}>
 								{post.featuredImage && (
 									<div className={classNames('w-full p-2 overflow-hidden', i !== 0 ? 'lg:w-[27%] flex-shrink-0' : '')} >
@@ -46,7 +46,7 @@ export const PostFramesFloat: React.VFC<{ posts: PostProps[] }> = ({ posts }) =>
 					<article key={post.postId} aria-label={post.title}
 						className="group bg-white rounded shadow sm:shadow-lg overflow-hidden ring-1 ring-gray-100"
 					>
-						<Link href={post.categories.nodes[0].uri + post.slug}>
+						<Link href={post.categories.nodes[0].uri + post.slug} prefetch={false}>
 							<a className="flex">
 								<div className="w-1/3 sm:w-1/4 lg:w-2/5 border-r-[1px] h-full flex-shrink-0 mr-2 lg:mr-4">
 									{post.featuredImage && (<CoverImage img={post.featuredImage.node} />)}
